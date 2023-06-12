@@ -1,0 +1,118 @@
+{%extends 'homepage.html'%}
+{%load static%}
+{%block content%}
+
+{% include 'header.html' %}
+
+    <!-- header -->
+    <header class="single-header">
+      <!-- Start: Header Content -->
+      <div class="container">
+        <div class="row text-center wow fadeInUp" data-wow-delay="0.5s">
+          <div class="col-sm-12">
+            <!-- Headline Goes Here -->
+            <h3>Contact Us</h3>
+            <h4>
+              <a href="{% url 'index' %}"> Home </a>
+              <span> &vert; </span> Contact
+            </h4>
+          </div>
+        </div>
+        <!-- End: .row -->
+      </div>
+      <!-- End: Header Content -->
+    </header>
+    <!--/. header -->
+    <!--/    
+==================================================-->
+    <!-- Start:  contact US  Section
+==================================================-->
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact_wrp">
+          <div class="row">
+            <div class="col-md-5 col-lg-4 col-sm-12">
+              <div class="contact_pg_address">
+                <h3>Hello there <br>got a project? </h3>
+                <div class="single_con_add">
+                  <a href="#">
+                    <i class="pe-7s-home"></i>
+                  </a>
+                  <p>Company Address :</p>
+                  <span>3567 New Alaska, <br> Washington, United State </span>
+                </div>
+                <div class="single_con_add">
+                  <a href="#">
+                    <i class="pe-7s-mail-open-file"></i>
+                  </a>
+                  <p>Email Address : </p>
+                  <span>example@email .com</span>
+                  <span>exmtwo@email .com</span>
+                </div>
+                <div class="single_con_add">
+                  <a href="#">
+                    <i class="pe-7s-headphones"></i>
+                  </a>
+                  <p>Contact Us :</p>
+                  <span>+77-00-222-1111</span>
+                  <span>+88-00-222-3333</span>
+                </div>
+                <div class="contact_social">
+                  <a href="#">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fab fa-pinterest-p"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7 col-lg-8 col-sm-12 inner-contact">
+              <!--  Contact Form  -->
+              <div class="contact-form">
+                <h3>Send Us Message</h3>
+                <form method="post" id="contact-form">
+                  {% csrf_token %}
+
+                  <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+                      <input class="con-field" name="name" id="name" type="text" placeholder="Name">
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                      <input class="con-field" name="email" id="email2" type="text" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+                      <textarea class="con-field" name="message" id="message2" rows="6" placeholder="Your Message"></textarea>
+                      <div class="submit-area">
+                        <input type="submit" class="submit-contact" value="Send Message">
+                        <div id="msg" class="message"></div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- End:Contact Form  -->
+            </div>
+            <div class="col-sm-12 map-container">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d233.93826608206666!2d72.7960127318986!3d40.534657453231524!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bdadd1466ee8f5%3A0xee5b9605c9134af7!2zU1RFTSDQuNC90LDQstCw0YbQuNC-0L3Ri9C5INC60L7Qu9C70LXQtNC2INCe0YjQnNCj!5e1!3m2!1sru!2skg!4v1685708038883!5m2!1sru!2skg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+          <!-- row /- -->
+        </div>
+      </div>
+      <!-- container /- -->
+    </section>
+    <!--   End: contact US  Section
+==================================================-->
+{% include 'footer.html' %}
+
+{%endblock%}
+  

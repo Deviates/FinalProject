@@ -1,0 +1,77 @@
+{% load static %}
+
+    <!-- Start: Header Section
+==================================================-->
+    <div class="navigation navigation_two">
+      <div class="container">
+        <div class="logo">
+          <a href="{% url 'index' %}">
+            <img class="img-responsive" src="{{settings.logo_site.url}}" width="70" alt="">       
+          </a>
+        </div>
+        <div id="navigation" class="menu-wrap">
+          <ul>
+            <li>
+              <a href="{% url 'index' %}">Главная страница</a>
+            </li>
+            <li>
+              <a href="{% url 'about' %}">О нас</a>
+            </li>
+            <li class="has-sub active">
+              <a href="{% url 'index' %}">Pages</a>
+              <ul>
+                <li>
+                  <a href="course-category.html">Course Category</a>
+                </li>
+                <li>
+                  <a href="{% url 'courses' %}">Our Course</a>
+                </li>
+                <li>
+                  <a href="single-course.html">Course Details</a>
+                </li>
+                <li>
+                  <a href="{% url 'login' %}">Login Page</a>
+                </li>
+                <li>
+                  <a href="{% url 'register' %}">Register Page</a>
+                </li>
+                <li>
+                  <a href="{% url 'teachers' %}">Instructor Page</a>
+                </li>
+                <li>
+                  <a href="single-teacher.html">Instructor Details</a>
+                </li>
+                <li>
+                  <a href="events.html">Event Page</a>
+                </li>
+                <li>
+                  <a href="single-event.html">Event Details</a>
+                </li>
+                <li>
+                  <a href="gallery.html">Gallery Page</a>
+                </li>
+                <li>
+                  <a href="404.html">404 Page</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="{% url 'courses' %}">Наши курсы</a>
+            </li>
+            <li>
+              <a href="blog.html">Blog</a>
+            </li>
+            <li>
+              <a href="{% url 'contacts' %}">Связаться с нами</a>
+            </li>
+          </ul>
+        </div>
+        <!-- End: Menu  -->
+        <div class="header_sign">
+          <a style="color:green;" href="{% url 'login' %}">login</a>
+          <a href="{% url 'register' %}" class="more-link"> Sign in</a>
+        </div>
+      </div>
+      <!--/ container -->
+    </div>
+    <!-- End: header navigation -->

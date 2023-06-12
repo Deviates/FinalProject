@@ -1,0 +1,72 @@
+{%extends 'homepage.html'%}
+{%load static%}
+{%block content%}
+
+{% include 'header.html' %}
+
+    <!-- header -->
+    <header class="single-header">
+      <!-- Start: Header Content -->
+      <div class="container">
+        <div class="row text-center wow fadeInUp" data-wow-delay="0.5s">
+          <div class="col-sm-12">
+            <!-- Headline Goes Here -->
+            <h3>Our Courses</h3>
+            <h4>
+              <a href="index.html"> Home </a>
+              <span> &vert; </span> Course
+            </h4>
+          </div>
+        </div>
+        <!-- End: .row -->
+      </div>
+      <!-- End: Header Content -->
+    </header>
+    <!--/. header -->
+    <!--/    
+==================================================-->
+    <!-- Start: Featured Courses Section
+==================================================-->
+    <section class="feat-course-section course-page">
+      <div class="container">
+        <!-- Start: Heading -->
+        <div class="base-header">
+          <h3> Our Courses </h3>
+        </div>
+        <!-- End: Heading -->
+        <div class="row">
+          {% for product in cource %}
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="feat_course_item">
+              <img src="{{product.foto_course.url}}" width="500" height="200" alt="image">
+              <div class="feat_cour_price">
+                <span class="feat_cour_tag"> {{product.name_course}} </span>
+                <span class="feat_cour_p"> ${{product.price}} </span>
+              </div>
+              <h4 class="feat_cour_tit"> {{product.desc_course}} </h4>
+              <div class="feat_cour_lesson">
+                <span class="feat_cour_less">
+                  <i class="pe-7s-note2"></i> {{product.less}} lessons </span>
+                <span class="feat_cour_stu">
+                  <i class="pe-7s-add-user"></i> {{product.students}} Students </span>
+              </div>
+              <div class="feat_cour_rating">
+                <span class="feat_cour_rat"> 4.6 <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i> (3,539) </span>
+                <a href="{% url 'detail_courses' product.id %}">
+                  <i class="arrow_right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          {%endfor %}
+          
+
+
+
+{% include 'footer.html' %}
+
+{%endblock%}

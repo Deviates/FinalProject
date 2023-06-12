@@ -1,0 +1,70 @@
+
+{%extends 'homepage.html'%}
+{%load static%}
+{%block content%}
+
+{% include 'header.html' %}
+
+    <!-- header -->
+    <header class="single-header">
+      <!-- Start: Header Content -->
+      <div class="container">
+        <div class="row text-center wow fadeInUp" data-wow-delay="0.5s">
+          <div class="col-sm-12">
+            <!-- Headline Goes Here -->
+            <h3>Events</h3>
+            <h4>
+              <a href="index.html"> Home </a>
+              <span> &vert; </span> Events
+            </h4>
+          </div>
+        </div>
+        <!-- End: .row -->
+      </div>
+      <!-- End: Header Content -->
+    </header>
+    <!--/. header -->
+    <!--/    
+==================================================-->
+    <!-- Start: Featured Courses Section
+==================================================-->
+      <section class="events-page">
+        <div class="container">
+          <div class="row">
+          {% for event in events %}
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="feat_course_item">
+              <div class="feat_cour_price">
+                <img src="{{event.foto_event.url}}" width="400" height="250" alt="image">
+                
+              </div>
+              <div class="feat_cour_lesson">
+                <span class="feat_cour_less">
+                  <i class="pe-7s-clock"></i> 5:30 PM - 06:30 PM </span>
+                <span class="feat_cour_stu">
+                  <i class="pe-7s-date"></i> July 24, 2021 </span>
+              </div>
+              <h4 class="feat_cour_tit"> {{event.title_event}} </h4>
+              <p> {{event.event_desc}} </p>
+              <div class="feat_cour_rating">
+                <span class="feat_cour_tag">
+                  <i class="pe-7s-map-marker"></i> New Margania </span>
+                <a href="single-event.html"> Join Event <span class="fal fa-angle-double-right"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          
+        </div>
+       
+      <!-- /. container -->
+    </section>
+    <!-- End: Featured Courses Section
+==================================================-->
+    <!-- Start:Footer Section
+==================================================-->
+   
+{% include 'footer.html' %}
+
+{%endblock%}

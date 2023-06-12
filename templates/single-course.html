@@ -1,0 +1,297 @@
+{%extends 'homepage.html'%}
+{%load static%}
+{%block content%}
+
+{% include 'header.html' %}
+
+    <!-- header -->
+    <header class="single-header">
+      <!-- Start: Header Content -->
+      <div class="container">
+        <div class="row text-center wow fadeInUp" data-wow-delay="0.5s">
+          <div class="col-sm-12">
+            <!-- Headline Goes Here -->
+            <h3>Single Course</h3>
+            <h4>
+              <a href="{% url 'index' %}"> Home </a>
+              <span> &vert; </span> Courses
+            </h4>
+          </div>
+        </div>
+        <!-- End: .row -->
+      </div>
+      <!-- End: Header Content -->
+    </header>
+    <!--/. header -->
+    <!--/    
+==================================================-->
+    <!-- Start : Blog Page Content  
+==================================================-->
+    <div class="single_course">
+      <div class="container">
+        <div class="row">
+          <!-- Blog Area -->
+          <div class="col-lg-8 col-sm-12">
+            <div class="sing_course_wrap">
+              <div class="sin_course_img">
+                <img class="img-responsive" src="{{cource.foto_course.url}}" width = "500px" alt="">
+                <span>Development</span>
+              </div>
+              <h4>Java Programming A-Z Full Classes With Extra Task</h4>
+              <div class="course_meta">
+                <img src="{% static 'images/author.png'%}" alt="">
+                <p>Nelson Mandela</p>
+                <span class="sin_cour_stu">
+                  <i class="fal fa-graduation-cap"></i> 20,153 Students </span>
+                <span class="sin_cour_rat"> 4.7 <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i> (4,5609) </span>
+              </div>
+              <div class="course_tab">
+                <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                  <li class="nav-item">
+                    <button class="nav-link active" id="pills-discription-tab" data-bs-toggle="tab" data-bs-target="#pills-discription" role="tab" aria-controls="pills-discription" aria-selected="true" type="button">Discription</button>
+                  </li>
+                  <li class="nav-item">
+                    <button class="nav-link" id="pills-curriculum-tab" data-bs-toggle="tab" data-bs-target="#pills-curriculum" role="tab" aria-controls="pills-curriculum" aria-selected="false" type="button">Curriculum</button>
+                  </li>
+                  <li class="nav-item">
+                    <button class="nav-link" id="pills-instructors-tab" data-bs-toggle="tab" data-bs-target="#pills-instructors" role="tab" aria-controls="pills-instructors" aria-selected="false" type="button">Instructors</button>
+                  </li>
+                  <li class="nav-item">
+                    <button class="nav-link" id="pills-reviews-tab" data-bs-toggle="tab" data-bs-target="#pills-reviews" role="tab" aria-controls="pills-reviews" aria-selected="false" type="button">Reviews</button>
+                  </li>
+                </ul>
+                <div class="tab-content course_tab_cont" id="pills-tabContent">
+                  <div class="tab-pane fade show active" id="pills-discription" aria-labelledby="pills-discription-tab" role="tabpanel">
+                    <span> Description : </span>
+                    <p> E learning dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos keti accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimel. sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur done sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna valiquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. </p>
+                    <span> What You Will Learn : </span>
+                    <p> E learning dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos keti accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimel. sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur done sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore facts. </p>
+                    <span> Certification : </span>
+                    <p> E learning dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos keti accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimel. sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur done sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore facts. </p>
+                    <div class="share_course">
+                      <span> Share Course : </span>
+                      <a href="#" class="fab fa-facebook-f"></a>
+                      <a href="#" class="fab fa-pinterest"></a>
+                      <a href="#" class="fab fa-twitter"></a>
+                      <a href="#" class="fa fa-link"></a>
+                    </div>
+                  </div>
+                  <!-- End:: discription-tab  -->
+                  <div class="tab-pane fade" id="pills-curriculum" aria-labelledby="pills-curriculum-tab" role="tabpanel">
+                    <span> Curriculum : </span>
+                    <p> E learning dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos keti accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimel. sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur done sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna valiquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. E learning dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos keti accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimel. sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur done sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore facts. E learning dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos keti accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimel. sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur done sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore facts. </p>
+                    <div class="share_course">
+                      <span> Share Course : </span>
+                      <a href="#" class="fab fa-facebook"></a>
+                      <a href="#" class="fab fa-pinterest"></a>
+                      <a href="#" class="fab fa-twitter"></a>
+                      <a href="#" class="fa fa-link"></a>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="pills-instructors" aria-labelledby="pills-instructors-tab" role="tabpanel">
+                    <span> Course Instructors : </span>
+                    <div class="course_instractor">
+                      <div class="course_instor_list">
+                        <img src="{% static 'images/instructor1.png'%}" alt="">
+                        <h4> Alex Benjamin </h4>
+                        <span> Web Developer</span>
+                        <div class="course_instor_soc">
+                          <a href="#" class="fab fa-facebook-i"></a>
+                          <a href="#" class="fab fa-pinterest"></a>
+                          <a href="#" class="fab fa-twitter"></a>
+                          <a href="#" class="fa fa-link"></a>
+                        </div>
+                      </div>
+                      <!-- end: Course Instractor 1 -->
+                      <div class="course_instor_list">
+                        <img src="{% static 'images/instructor2.png'%}" alt="">
+                        <h4> Alex Benjamin </h4>
+                        <span> Web Developer</span>
+                        <div class="course_instor_soc">
+                          <a href="#" class="fab fa-facebook-i"></a>
+                          <a href="#" class="fab fa-pinterest"></a>
+                          <a href="#" class="fab fa-twitter"></a>
+                          <a href="#" class="fa fa-link"></a>
+                        </div>
+                      </div>
+                      <!-- end: Course Instractor 2 -->
+                      <div class="course_instor_list">
+                        <img src="{% static 'images/instructor3.png'%}" alt="">
+                        <h4> Alex Benjamin </h4>
+                        <span> Web Developer</span>
+                        <div class="course_instor_soc">
+                          <a href="#" class="fab fa-facebook-i"></a>
+                          <a href="#" class="fab fa-pinterest"></a>
+                          <a href="#" class="fab fa-twitter"></a>
+                          <a href="#" class="fa fa-link"></a>
+                        </div>
+                      </div>
+                      <!-- end: Course Instractor 3 -->
+                      <div class="course_instor_list">
+                        <img src="{% static 'images/instructor4.png'%}" alt="">
+                        <h4> Alex Benjamin </h4>
+                        <span> Web Developer</span>
+                        <div class="course_instor_soc">
+                          <a href="#" class="fab fa-facebook-i"></a>
+                          <a href="#" class="fab fa-pinterest"></a>
+                          <a href="#" class="fab fa-twitter"></a>
+                          <a href="#" class="fa fa-link"></a>
+                        </div>
+                      </div>
+                      <!-- end: Course Instractor 4 -->
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="pills-reviews" aria-labelledby="pills-reviews-tab" role="tabpanel">
+                    <span> Students Reviews :</span>
+                    <div id="revCarousel" class="carousel slide sturev_carousel" data-bs-ride="carousel">
+                      <div class="carousel-item sturev_item active">
+                        <!-- Start: Heading -->
+                        <div class="sturev_wrap">
+                          <img src="{% static 'images/instructor4.png'%}" alt="">
+                          <div class="sturev_name">
+                            <h4>Beckham Davis</h4>
+                            <span> UI Designer</span>
+                          </div>
+                          <span class="sturev_rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                          </span>
+                        </div>{% static 'images/instructor4.png'%}
+                        <p> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod at tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren veccens.</p>
+                      </div>
+                      <div class="carousel-item sturev_item">
+                        <!-- Start: Heading -->
+                        <div class="sturev_wrap">
+                          <img src="{% static 'images/instructor4.png'%}" alt="">
+                          <div class="sturev_name">
+                            <h4>Beckham Davis</h4>
+                            <span> UI Designer</span>
+                          </div>
+                          <span class="sturev_rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                          </span>
+                        </div>
+                        <p> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod at tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren veccens.</p>
+                      </div>
+                      <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#revCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#revCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#revCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                      </div>
+                    </div>
+                    <!--/ col-md-12  -->
+                    <div class="review_form">
+                      <span> Write A Review</span>
+                      <form method="post" action="mailer.php" id="contact-form">
+                        <div class="row">
+                          <div class="col-lg-6 col-sm-12">
+                            <input class="con-field" name="name" id="rname" type="text" placeholder="Name">
+                          </div>
+                          <div class="col-lg-6 col-sm-12">
+                            <input class="con-field" name="email" id="remail" type="text" placeholder="Email">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-12 col-sm-12 rev_textarea">
+                            <textarea class="con-field" name="message" id="rmessage" rows="6" placeholder="Your Comment"></textarea>
+                            <span class="sin_cour_rat">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                            </span>
+                          </div>
+                          <div class="col-lg-12 col-sm-12 submit-area">
+                            <input type="submit" class="submit-contact" value="Submit">
+                            <div id="msg" class="message"></div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/ article -->
+          </div>
+          <!--/ Left Side Area -->
+          <!-- Widget Area -->
+          <div class="col-lg-4 col-sm-12 single_curs_right">
+            <!-- Widget Course Details -->
+            <aside class="widget-course-details">
+              <h2> Price <span> $170 </span>
+              </h2>
+              <div class="course-detail-list">
+                <span>
+                  <i class="far fa-user"></i>Instructor </span>
+                <span> Nelson Mandela </span>
+              </div>
+              <div class="course-detail-list">
+                <span>
+                  <i class="far fa-clock"></i>Duration </span>
+                <span> 07 hr 20 mins </span>
+              </div>
+              <div class="course-detail-list">
+                <span>
+                  <i class="far fa-journal-whills"></i>Lectures </span>
+                <span> 32 </span>
+              </div>
+              <div class="course-detail-list">
+                <span>
+                  <i class="far fa-layer-group"></i>Level </span>
+                <span> Advance </span>
+              </div>
+              <div class="course-detail-list">
+                <span>
+                  <i class="far fa-globe"></i>Language </span>
+                <span> English </span>
+              </div>
+              <div class="course-detail-list">
+                <span>
+                  <i class="far fa-book-spells"></i>Certification </span>
+                <span> Yes </span>
+              </div>
+              <a href="{% url 'buy' %}" class="more-link"> Buy Now</a>
+            </aside>
+            <!-- Widget Course Details /- -->
+            <!-- Related Courses -->
+            <aside class="widget-rel-course">
+              <h3>Related Courses </h3>
+              <div class="rel-course-box">
+                <a href="single-blog.html">Components are clearly alined with those particular assignment</a>
+                <span> Development </span>
+              </div>
+              <div class="rel-course-box">
+                <a href="single-blog.html">Components are clearly alined with those particular assignment</a>
+                <span> Development </span>
+              </div>
+              <div class="rel-course-box">
+                <a href="single-blog.html">Components are clearly alined with those particular assignment</a>
+                <span> Development </span>
+              </div>
+            </aside>
+            <!-- Related Courses /- -->
+          </div>
+          <!-- Widget Area /- -->
+        </div>
+      </div>
+      <!-- Container /- -->
+    </div>
+    <!-- End : Blog Page Content 
+==================================================-->
+
+{% include 'footer.html' %}
+
+{%endblock%}

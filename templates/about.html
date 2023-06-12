@@ -1,0 +1,233 @@
+{%extends 'homepage.html'%}
+{%load static%}
+{%block content%}
+
+{% include 'header.html' %}
+
+    <!-- header -->
+    <header class="single-header">
+      <!-- Start: Header Content -->
+      <div class="container">
+        <div class="row text-center wow fadeInUp" data-wow-delay="0.5s">
+          <div class="col-sm-12">
+            <!-- Headline Goes Here -->
+            <h3>About Us</h3>
+            <h4>
+              <a href="{% url 'index' %}"> Home </a>
+              <span> &vert; </span> About
+            </h4>
+          </div>
+        </div>
+        <!-- End: .row -->
+      </div>
+      <!-- End: Header Content -->
+    </header>
+    <!--/. header -->
+    <!--/    
+==================================================-->
+    <!-- Start: Work Flow Section
+==================================================-->
+    <section class="workflow-section pt-120">
+      <!-- Container -->
+      <div class="container">
+        <!-- Start: Heading -->
+        <div class="base-header text-center">
+          <h3> Supreme Work Flow</h3>
+        </div>
+        <!-- End: Heading -->
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <!-- category 1 -->
+            <div class="workflow_item">
+              <i class="pe-7s-search"></i>
+              <h4> Find Your Course </h4>
+              <p>Lorem ipsum dolor sit amet can be sed diam nonumy eirmod keeps an the satriction of whole life that enter.</p>
+            </div>
+          </div>
+          <!--/ col-lg-4 col-md-6 col-sm-12  -->
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <!-- category 1 -->
+            <div class="workflow_item">
+              <i class="pe-7s-date"></i>
+              <h4>Book Your Seat </h4>
+              <p>Lorem ipsum dolor sit amet can be sed diam nonumy eirmod keeps an the satriction of whole life that enter.</p>
+            </div>
+          </div>
+          <!--/ col-lg-4 col-md-6 col-sm-12  -->
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <!-- category 1 -->
+            <div class="workflow_item">
+              <i class="pe-7s-medal"></i>
+              <h4> Instant Certified </h4>
+              <p>Lorem ipsum dolor sit amet can be sed diam nonumy eirmod keeps an the satriction of whole life that enter.</p>
+            </div>
+          </div>
+          <!--/ col-lg-4 col-md-6 col-sm-12  -->
+        </div>
+        <!--/ row - -->
+      </div>
+      <!--/ Container - -->
+    </section>
+    <!--   End: Work Flow Section
+==================================================-->
+    <!-- Start:  About US  Section
+==================================================-->
+    <section class="about-section about_pg_sec">
+      <!-- Container -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
+            <div class="abt_rating">
+              <h4> 4.9+</h4>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <span> User Rating</span>
+            </div>
+            <!-- /.abt_rating-->
+            <div class="about_img" id="scene">
+              <img src="{% static 'images/about.png'%}" alt="image" class="layer" data-depth="0.28">
+            </div>
+            <!-- /.about_img-->
+            <div class="abt_course">
+              <h4>47K+</h4>
+              <i class="fa fa-heart"></i>
+              <i class="fa fa-heart"></i>
+              <i class="fa fa-heart"></i>
+              <i class="fa fa-heart"></i>
+              <i class="fa fa-heart"></i>
+              <span> Active Courses</span>
+            </div>
+            <!-- /.abt_course-->
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="about_text">
+              <h3> We Make Your Learning Through Awesome </h3>
+              <p> Become the dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet.</p>
+              <a href="{% url 'contacts' %}" class="more-link"> Learn More </a>
+            </div>
+          </div>
+          <!--/ col-md-12  -->
+        </div>
+        <!--/ row - -->
+      </div>
+      <!--/ Container - -->
+    </section>
+    <!--   End: About US  Section
+==================================================-->
+    <!-- Start: Funfacts Section
+==================================================-->
+    <section class="funfacts-section">
+      <!-- Container -->
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="funfacts_item">
+              <img src="{% static 'images/funfact1.png'%}" alt="">
+              <h2> 2500+ </h2>
+              <span> Online Courses </span>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="funfacts_item">
+              <img src="{% static 'images/funfact2.png'%}" alt="">
+              <h2> 7000+ </h2>
+              <span> Students Enrolled </span>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="funfacts_item">
+              <img src="{% static 'images/funfact3.png'%}" alt="">
+              <h2> 340+ </h2>
+              <span> Expert Instructors </span>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="funfacts_item">
+              <img src="{% static 'images/funfact4.png'%}" alt="">
+              <h2>9000+</h2>
+              <span> Hours Content</span>
+            </div>
+          </div>
+        </div>
+        <!--/ row - -->
+      </div>
+      <!--/ Container - -->
+    </section>
+    <!--   End: Funfacts Section
+==================================================-->
+    <!-- Start:  Learners Feedback Section
+==================================================-->
+    <section class="lfeedback-section about_pg_lfeedback">
+      <!-- Container -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
+            <div class="lfeedback_img" id="scene2">
+              <img src="{% static 'images/feedback.png'%}" alt="image" class="layer" data-depth="0.28">
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12" id="lfeedback_cur">
+            <div class="lfeedback_item">
+              <!-- Start: Heading -->
+              <div class="base-header">
+                <h3> Our Learners Feedback </h3>
+              </div>
+              <!-- Best Book Image 1 -->
+              <div class="lfeedback_text">
+                <p> It's Had been a fear most experience me that I feel a great assumption that never thoughts that will happens to But great provocatives things appropities received without realmost qualifier that happen that never thoughts that will happens to a fear most experience. </p>
+                <h4> David Benjamin </h4>
+                <h5>Washington, United States</h5>
+              </div>
+            </div>
+            <div class="lfeedback_item">
+              <!-- Start: Heading -->
+              <div class="base-header">
+                <h3> Our Learners Feedback </h3>
+              </div>
+              <!-- Best Book Image 1 -->
+              <div class="lfeedback_text">
+                <p> It's Had been a fear most experience me that I feel a great assumption that never thoughts that will happens to But great provocatives things appropities received without realmost qualifier that happen that never thoughts that will happens to a fear most experience. </p>
+                <h4> David Benjamin </h4>
+                <h5>Washington, United States</h5>
+              </div>
+            </div>
+          </div>
+          <!--/ col-md-12  -->
+        </div>
+        <!--/ row - -->
+      </div>
+      <!--/ Container - -->
+    </section>
+    <!--   End: Learners Feedback Section
+==================================================-->
+    <!-- Start:  Call to action Section
+==================================================-->
+    <section class="cta-section">
+      <!-- Container -->
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="cta_wrap">
+              <div class="cta_text">
+                <h3> Become An Instructor </h3>
+                <p> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore facts. </p>
+              </div>
+              <a href="contact.html" class="more-link"> Join Us Now </a>
+            </div>
+          </div>
+          <!--/ col-md-12  -->
+        </div>
+        <!--/ row - -->
+      </div>
+      <!--/ Container - -->
+    </section>
+    <!--   End: Call to action Section
+==================================================-->
+
+
+{% include 'footer.html' %}
+
+{%endblock%}

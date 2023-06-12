@@ -1,0 +1,77 @@
+
+{%extends 'homepage.html'%}
+{%load static%}
+{%block content%}
+
+    <!-- Start: Account Section 
+==================================================-->
+    <section class="account-section">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="reg_wrap">
+              <!-- Start: Image -->
+              <div class="reg_img">
+                <img src="{% static 'images/hero-men.png'%}" alt="">
+              </div>
+              <!-- Start:  Signup  Form  -->
+              <div class="registration-form">
+                <h2> Пожалуйста заполните форму для покупки </h2>
+                
+                <form method="post">
+                  {% csrf_token %}
+
+                  <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                      <input class="signup-field" name="name" id="name" type="text" placeholder="Full Name">
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                      <input class="signup-field" name="email" id="remail" type="text" placeholder="Email address">
+                    </div>
+                    <div class="col-lg-12 col-sm-12">
+                      <input class="signup-field" name="phone" id="phone" type="text" placeholder="Phone number (Telegram or Whatsapp)">
+                    </div>
+                    <!-- <div class="col-lg-12 col-sm-12">
+                      <input class="signup-field" name="course" id="course" type="text" placeholder="Направление">
+                    </div> -->
+                    <div class="col-md-6 mb-4">
+                      <label class="form-label fw-bold">Направление : <span class="text-danger">*</span></label>
+                      <select name="course" class="form-control">
+                          {% for course in courses %}
+                          <option value = "{{ course.id }}">{{ course.name_course }}</option>
+                          {% endfor %}
+                      </select>
+                  </div><!--end col-->
+                    <!-- <div class="col-md-6 col-sm-12">
+                      <input class="signup-field" name="city" id="city" type="text" placeholder="Town/City">
+                    </div> -->
+                    <!-- <div class="col-md-6 col-sm-12">
+                      <input class="signup-field" name="zip" id="zip" type="text" placeholder="Postcode/Zip">
+                    </div> -->
+                    <!-- <div class="col-sm-12">
+                      <div class="term-and-condition">
+                        <input type="checkbox" id="term">
+                        <label for="term">I agree to <a href="#">term &amp; condition</a> and <a href="#">privacy policy</a>
+                        </label>
+                      </div>
+                    </div>  -->
+                    <div class="submit-area">
+                      <input type="submit" class="submit-contact" style="color: rgb(115, 115, 115); font-size: 25px;" value="Buy">
+                      <div id="msg" class="message"></div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- End:Signup Form  -->
+            </div>
+            <!-- .col-md-6 .col-sm-12 /- -->
+          </div>
+        </div>
+        <!-- row /- -->
+      </div>
+      <!-- container /- -->
+    </section>
+    <!-- End : Account Section 
+==================================================-->
+
+{%endblock%}
