@@ -1,52 +1,22 @@
 from django.shortcuts import render, redirect
 from .models import Courses, Buy
-from apps.index.models import Settings
+from apps.settings.models import Setting
 from apps.telegram.views import get_text
-from apps.contacts.models import Anonym_messages
 
 # Create your views here.
 def courses(request):
-    cource = Courses.objects.all()
-    if request.method == "POST":
-        name2 = request.POST.get("name2")
-        message2 = request.POST.get("message2")
-
-        reviews = Anonym_messages.objects.create(name2 = name2, message2 = message2)
-
-        get_text(f""" Оставлен анонимный отзыв
-Кому: {reviews.name2}
-Текст: {reviews.message2}
-""")
-
-    context = {
-        "cource" : cource
-    }
-    return render(request, "courses.html", context)
-
+    settings=Setting.objects.latest("id")
+    course = Courses.objects.all()
+    return render(request, "courses/index.html", locals())
 
 def detail_courses(request,id):
-    cource= Courses.objects.get(id=id)
-    if request.method == "POST":
-        name2 = request.POST.get("name2")
-        message2 = request.POST.get("message2")
-
-        reviews = Anonym_messages.objects.create(name2 = name2, message2 = message2)
-
-        get_text(f""" Оставлен анонимный отзыв
-Кому: {reviews.name2}
-Текст: {reviews.message2}
-""")
-
-    context = {
-        'cource':cource
-    }
-
-
-    return render(request,'single-course.html',context)
+    settings=Setting.objects.latest("id")
+    course = Courses.objects.get(id=id)
+    return render(request,'courses/detail.html',locals())
 
 def buy(request):
-    settings =  Settings.objects.latest("id")
-    courses= Courses.objects.all()
+    settings=Setting.objects.latest("id")
+    courses=Courses.objects.all()
     if request.method == "POST":
         name = request.POST.get("name")
         email = request.POST.get("email")

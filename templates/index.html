@@ -205,20 +205,20 @@
         </div>
         <!-- End: Heading -->
         <div class="row">
-          {% for product in courses %}
+          {% for course in courses %}
           <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="feat_course_item">
-              <img src="{{product.image.url}}" width="50" height="200" alt="image">
+              <img src="{{course.image.url}}" width="50" height="200" alt="image">
               <div class="feat_cour_price">
-                <span class="feat_cour_tag"> {{ product.title }} </span>
-                <span class="feat_cour_p"> ${{ product.price }} </span>
+                <span class="feat_cour_tag"> {{ course.title }} </span>
+                <span class="feat_cour_p"> ${{ course.price }} </span>
               </div>
-              <h4 class="feat_cour_tit"> {{product.title}} </h4>
+              <h4 class="feat_cour_tit"> {{course.title}} </h4>
               <div class="feat_cour_lesson">
                 <span class="feat_cour_less">
-                  <i class="pe-7s-note2"></i> {{product.less}} lessons </span>
+                  <i class="pe-7s-note2"></i> {{course.less}} lessons </span>
                 <span class="feat_cour_stu">
-                  <i class="pe-7s-add-user"></i> {{product.students}} Students </span>
+                  <i class="pe-7s-add-user"></i> {{course.students}} Students </span>
               </div>
               <div class="feat_cour_rating">
                 <span class="feat_cour_rat"> 4.8 <i class="fa fa-star"></i>
@@ -226,7 +226,7 @@
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i> (4,539) </span>
-                <a href="">
+                <a href="{% url 'detail_courses' course.id %}">
                   <i class="arrow_right"></i>
                 </a>
               </div>

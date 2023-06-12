@@ -1,8 +1,8 @@
-{%extends 'homepage.html'%}
+{%extends 'include/homepage.html'%}
 {%load static%}
 {%block content%}
 
-{% include 'header.html' %}
+{% include 'include/header.html' %}
 
     <!-- header -->
     <header class="single-header">
@@ -11,10 +11,10 @@
         <div class="row text-center wow fadeInUp" data-wow-delay="0.5s">
           <div class="col-sm-12">
             <!-- Headline Goes Here -->
-            <h3>Single Course</h3>
+            <h3>{{ course.title }}</h3>
             <h4>
-              <a href="{% url 'index' %}"> Home </a>
-              <span> &vert; </span> Courses
+              <a href="{% url 'index' %}"> Домой </a>
+              <span> &vert; </span> {{ course.title }}
             </h4>
           </div>
         </div>
@@ -34,10 +34,10 @@
           <div class="col-lg-8 col-sm-12">
             <div class="sing_course_wrap">
               <div class="sin_course_img">
-                <img class="img-responsive" src="{{cource.foto_course.url}}" width = "500px" alt="">
-                <span>Development</span>
+                <img class="img-responsive" src="{{course.image.url}}" width = "500px" alt="">
+                <span>{{ course.category.title }}</span>
               </div>
-              <h4>Java Programming A-Z Full Classes With Extra Task</h4>
+              <h4>{{ course.title }}</h4>
               <div class="course_meta">
                 <img src="{% static 'images/author.png'%}" alt="">
                 <p>Nelson Mandela</p>
@@ -231,7 +231,7 @@
           <div class="col-lg-4 col-sm-12 single_curs_right">
             <!-- Widget Course Details -->
             <aside class="widget-course-details">
-              <h2> Price <span> $170 </span>
+              <h2> Цена <span> {{ course.price }} </span>
               </h2>
               <div class="course-detail-list">
                 <span>
@@ -292,6 +292,6 @@
     <!-- End : Blog Page Content 
 ==================================================-->
 
-{% include 'footer.html' %}
+{% include 'include/footer.html' %}
 
 {%endblock%}
