@@ -20,23 +20,9 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 
-from apps.index import urls
-from apps.about import urls
-from apps.contacts import urls
-from apps.courses import urls
-from apps.events import urls
-from apps.teachers import urls
-from apps.users import urls
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("apps.index.urls")),
-    path('', include("apps.about.urls")),
-    path('', include("apps.contacts.urls")),
-    path('', include("apps.courses.urls")),
-    path('', include("apps.events.urls")),
-    path('', include("apps.teachers.urls")),
-    path('', include("apps.users.urls")),
+    path('', include('apps.settings.urls')),
+    path('users/', include('apps.users.urls'))
 ]
 urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

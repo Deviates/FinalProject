@@ -3,20 +3,19 @@ from django.contrib.auth import login, authenticate
 from django.db import IntegrityError
 from django.contrib import messages
 from .models import User
-from apps.index.models import Settings
+from apps.settings.models import Setting
 
 # Create your views here.
 def register(request):
-    setting = Settings.objects.latest('id')
+    setting = Setting.objects.latest('id')
     if request.method == "POST":
         username = request.POST.get('username')
-        email = request.POST.get('email')
         password = request.POST.get('password')
-        confirm_password = request.POST.get('confirm_password')
+        confirm_password = request.POST.get('confirm')
         if password == confirm_password:
-            if username and email and password and confirm_password:
+            if username and password and confirm_password:
                 try:
-                    user = User.objects.create(username = username, email = email)
+                    user = User.objects.create(username = username)
                     user.set_password(password)
                     user.save()
                     user = User.objects.get(username = username)
@@ -32,11 +31,11 @@ def register(request):
     context = {
         'setting' : setting,
     }
-    return render(request, 'register.html', context)
+    return render(request, 'users/register.html', context)
 
 
-def us_login(request):
-    setting = Settings.objects.latest("id")
+def user_login(request):
+    setting = Setting.objects.latest("id")
     if request.method =="POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -55,4 +54,4 @@ def us_login(request):
     context = {
         "setting": setting,
     }
-    return render(request, "login.html", context)
+    return render(request, "users/login.html", context)

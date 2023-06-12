@@ -1,8 +1,8 @@
-{% extends 'homepage.html'%}
+{% extends 'include/homepage.html'%}
 {% load static %}
 {% block content %}
 
-{%include 'header.html'%}
+{%include 'include/header.html'%}
     <!-- Start: Hero Section
 ==================================================-->
     <div class="slider_owl">
@@ -11,9 +11,9 @@
           <div class="row">
             <div class="col-md-6 coursescol-sm-12">
               <div class="hero_text">
-                <h2> Учитесь c наслождением<br />только в<br />STEM</h2>
-                <p>{{settings.info_site}}</p>
-                <a href="#" class="more-link"> Начать </a>
+                <h2>{{setting.info_site}}</h2>
+                <p>{{setting.info_site}}</p>
+                <a href="#" class="more-link"> Наши курсы </a>
               </div>
               <!-- /.hero_text -->
             </div>
@@ -54,8 +54,8 @@
             <div class="col-md-6 col-sm-12">
               <div class="hero_text">
                 <h2> Учитесь c наслождением<br />только в<br />STEM</h2>
-                <p>{{settings.info_site}}</p>
-                <a href="#" class="more-link"> Начать </a>
+                <p>{{setting.info_site}}</p>
+                <a href="#" class="more-link"> Наши курсы </a>
               </div>
               <!-- /.hero_text -->
             </div>
@@ -100,37 +100,20 @@
       <div class="container">
         <!-- Start: Heading -->
         <div class="base-header text-center">
-          <h3> Our Work Flow</h3>
+          <h3> Почему выбирают образовательную платформу {{ setting.name_site }}</h3>
         </div>
         <!-- End: Heading -->
         <div class="row">
+          {% for benefit in benefits %}
           <div class="col-lg-4 col-md-6 col-sm-12">
             <!-- category 1 -->
             <div class="workflow_item">
-              <i class="pe-7s-search"></i>
-              <h4> Find Your Course </h4>
-              <p>Lorem ipsum dolor sit amet can be sed diam nonumy eirmod keeps an the satriction of whole life that enter.</p>
+              <i class="pe-7s-download"></i>
+              <h4> {{ benefit.title }} </h4>
+              <p>{{ benefit.description }}</p>
             </div>
           </div>
-          <!--/ col-lg-4 col-md-6 col-sm-12  -->
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <!-- category 1 -->
-            <div class="workflow_item">
-              <i class="pe-7s-date"></i>
-              <h4>Book Your Seat </h4>
-              <p>Lorem ipsum dolor sit amet can be sed diam nonumy eirmod keeps an the satriction of whole life that enter.</p>
-            </div>
-          </div>
-          <!--/ col-lg-4 col-md-6 col-sm-12  -->
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <!-- category 1 -->
-            <div class="workflow_item">
-              <i class="pe-7s-medal"></i>
-              <h4> Instant Certified </h4>
-              <p>Lorem ipsum dolor sit amet can be sed diam nonumy eirmod keeps an the satriction of whole life that enter.</p>
-            </div>
-          </div>
-          <!--/ col-lg-4 col-md-6 col-sm-12  -->
+          {% endfor %}
         </div>
         <!--/ row - -->
       </div>
@@ -192,36 +175,17 @@
       <div class="container">
         <!-- Start: Heading -->
         <div class="base-header">
-          <h3> Popular Categories </h3>
+          <h3> Станьте востребован­ным специалистом </h3>
         </div>
         <!-- End: Heading -->
         <div class="row">
           <div class="col-md-12" id="popula_cat">
             <!-- category 1 -->
+            {% for category in categories %}
             <div class="category-item">
-              <img src="{% static 'images/cat-icon1.png'%}" alt="image">
-              <h4>Design</h4>
+              <h4>{{ category.title }}</h4>
             </div>
-            <!-- category 2 -->
-            <div class="category-item">
-              <img src="{% static 'images/cat-icon2.png'%}" alt="image">
-              <h4>Education</h4>
-            </div>
-            <!-- category 3 -->
-            <div class="category-item">
-              <img src="{% static 'images/cat-icon3.png'%}" alt="image">
-              <h4>Craft</h4>
-            </div>
-            <!-- category 4 -->
-            <div class="category-item">
-              <img src="{% static 'images/cat-icon4.png'%}" alt="image">
-              <h4>Marketing</h4>
-            </div>
-            <!-- category 5 -->
-            <div class="category-item">
-              <img src="{% static 'images/cat-icon2.png'%}" alt="image">
-              <h4>Design</h4>
-            </div>
+            {% endfor %}
           </div>
           <!--/ col-md-12  -->
         </div>
@@ -237,19 +201,19 @@
       <div class="container">
         <!-- Start: Heading -->
         <div class="base-header">
-          <h3> Our Featured Courses </h3>
+          <h3> Наши курсы </h3>
         </div>
         <!-- End: Heading -->
         <div class="row">
-          {% for product in cource %}
+          {% for product in courses %}
           <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="feat_course_item">
-              <img src="{{product.foto_course.url}}" width="50" height="200" alt="image">
+              <img src="{{product.image.url}}" width="50" height="200" alt="image">
               <div class="feat_cour_price">
-                <span class="feat_cour_tag"> {{ product.name_course }} </span>
+                <span class="feat_cour_tag"> {{ product.title }} </span>
                 <span class="feat_cour_p"> ${{ product.price }} </span>
               </div>
-              <h4 class="feat_cour_tit"> {{product.desc_product}} </h4>
+              <h4 class="feat_cour_tit"> {{product.title}} </h4>
               <div class="feat_cour_lesson">
                 <span class="feat_cour_less">
                   <i class="pe-7s-note2"></i> {{product.less}} lessons </span>
@@ -262,7 +226,7 @@
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i> (4,539) </span>
-                <a href="{% url 'detail_courses' product.id %}">
+                <a href="">
                   <i class="arrow_right"></i>
                 </a>
               </div>
@@ -272,7 +236,7 @@
           
         <!-- /. row -->
         <div class="text-center">
-          <a href="{% url 'courses' %}" class="more-link"> View All </a>
+          <a href="" class="more-link"> View All </a>
         </div>
       </div>
       <!-- /. container -->
@@ -408,6 +372,6 @@
     </section>
     <!-- End: Newsletter Section
 ==================================================-->
-{% include 'footer.html' %}
+{% include 'include/footer.html' %}
 
 {%endblock%}

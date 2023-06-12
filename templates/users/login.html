@@ -1,7 +1,7 @@
-{%extends 'homepage.html'%}
+{%extends 'include/homepage.html'%}
 {%load static%}
 {%block content%}
-{% include 'header.html' %}
+{% include 'include/header.html' %}
 
 <!-- header -->
 <header class="single-header">
@@ -37,12 +37,14 @@
           </div>
           <!-- Start:  Login Form  -->
           <div class="login-form">
-            <h2> Login to Your Account </h2>
+            <h2> Войдите в свой профиль </h2>
             <form method="post">
-              <input class="login-field" name="name" id="name" type="text" placeholder="Enter Your Name">
-              <input class="login-field" name="password" id="lpassword" type="password" placeholder="Enter Your Password">   
+              {% csrf_token %}
+              <input class="login-field" name="username" id="name" type="text" placeholder="Имя пользователя">
+              <input class="login-field" name="password" id="lpassword" type="password" placeholder="Пароль">   
               <div class="submit-area">
-                <a href="{% url 'index' %}" class="submit more-link"> Login </a>
+                <!-- <a href="{% url 'index' %}" class="submit more-link"> Войти </a> -->
+                <button class="submit more-link" type="submit"> Войти </button>
                 <div id="lmsg" class="message"></div>
               </div>
               <div class="col-12">
@@ -66,4 +68,6 @@
 <!-- End : Account Section 
 ==================================================-->
 <!-- Start:Footer Section
-==================================================--> {% include 'footer.html' %} {%endblock%}
+==================================================--> 
+{% include 'include/footer.html' %} 
+{%endblock%}

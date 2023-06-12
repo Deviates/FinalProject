@@ -1,0 +1,44 @@
+{% load static %}
+
+    <!-- Start: Header Section
+==================================================-->
+    <div class="navigation navigation_two">
+      <div class="container">
+        <div class="logo">
+          <a href="{% url 'index' %}">
+            <img class="img-responsive" src="{{setting.logo_site.url}}" width="70" alt="">       
+          </a>
+        </div>
+        <div id="navigation" class="menu-wrap">
+          <ul>
+            <li>
+              <a href="{% url 'index' %}">Главная страница</a>
+            </li>
+            <li>
+              <a href="">О нас</a>
+            </li>
+            
+            <li>
+              <a href="">Наши курсы</a>
+            </li>
+            
+            <li>
+              <a href="">Связаться с нами</a>
+            </li>
+          </ul>
+        </div>
+        <!-- End: Menu  -->
+        <div class="header_sign">
+          <!-- <a style="color:green;" href="">login</a> -->
+          {% if user.is_authenticated %}
+          <a href="" class="more-link"> Личный кабинет</a>
+          <a href="{% url 'logout' %}" class="more-link"> Выйти</a>
+          {% else %}
+          <a href="{% url 'login' %}" class="more-link"> Войти</a>
+          <a href="{% url 'register' %}" class="more-link"> Регистрация</a>
+          {% endif %}
+        </div>
+      </div>
+      <!--/ container -->
+    </div>
+    <!-- End: header navigation -->

@@ -1,33 +1,50 @@
-from typing import Iterable, Optional
 from django.db import models
-from apps.telegram.views import get_text
 
 # Create your models here.
+class Category(models.Model):
+    title = models.CharField(
+        max_length=255,
+        verbose_name="Название"
+    )
+    slug = models.CharField(
+        max_length=100,
+        verbose_name="Slug"
+    )
+
+    def __str__(self):
+        return self.title 
+    
+    class Meta:
+        verbose_name = "Категория"
+        verbose_name_plural = "Категории"
+
 class Courses(models.Model):
-    name_course = models.CharField(
+    category = models.ForeignKey(
+        Category, on_delete=models.SET_NULL,
+        related_name="category_courses",
+        null=True, verbose_name="Категория"
+    )
+    title = models.CharField(
         max_length=255,
         verbose_name="Название курса"
     )
-    foto_course = models.ImageField(
+    image = models.ImageField(
         upload_to="product/",
         verbose_name="Фотография продукта"
     )
     price = models.BigIntegerField(
         verbose_name="Цена курса"
     )
-    desc_course = models.TextField(
-        max_length=255,
+    description = models.TextField(
         verbose_name="Описание продукта"       
     )
-    less = models.BigIntegerField(
-        verbose_name="Количество занятий"
-    )
-    students = models.BigIntegerField(
-        verbose_name="Количество студентов"
+    duration = models.CharField(
+        max_length=100,
+        verbose_name="Длительность"
     )
 
     def __str__(self):
-        return self.name_course
+        return self.title
     
     class Meta:
         verbose_name = "Наши курсы"

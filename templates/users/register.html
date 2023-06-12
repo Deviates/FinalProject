@@ -1,7 +1,7 @@
-{%extends 'homepage.html'%}
+{%extends 'include/homepage.html'%}
 {%load static%}
 {%block content%}
-{% include 'header.html' %}
+{% include 'include/header.html' %}
 
     <!-- header -->
     <header class="single-header">
@@ -38,39 +38,35 @@
 
                         <!-- Start:  Signup  Form  -->
                         <div class="registration-form">
-                            <h2> New User Signup! </h2>
+                            <h2> Создайте свой профиль </h2>
                             <form method="post">
                                 <div class="row">
                                     {% csrf_token %}
 
-                                    <div class="col-md-6 col-sm-12">
+                                    <div class="col-md-12 col-sm-12">
                                         <input class="signup-field" name="username" id="username" type="text"
-                                            placeholder="Full Name">
+                                            placeholder="Имя пользователя">
                                     </div>
-                                    <div class="col-md-6 col-sm-12">
-                                        <input class="signup-field" name="email" id="email" type="text"
-                                            placeholder="Email address">
-                                    </div>
-
-                                    <div class="col-md-6 col-sm-12">
-                                        <input class="signup-field" name="password" id="password" type="password"
-                                            placeholder="Password">
+                                    <div class="col-md-12 col-sm-12">
+                                        <input class="signup-field" name="password" id="email" type="text"
+                                            placeholder="Пароль">
                                     </div>
 
-                                    <div class="col-md-6 col-sm-12">
-                                        <input class="signup-field" name="confirm_password" id="confirm_password" type="password"
-                                            placeholder="Confirm Password">
+                                    <div class="col-md-12 col-sm-12">
+                                        <input class="signup-field" name="confirm" id="email" type="text"
+                                            placeholder="Подтвердить пароль">
                                     </div>
-
+                                    
                                     <div class="col-sm-12">
                                         <div class="term-and-condition">
                                             <input type="checkbox" id="term">
-                                            <label for="term">I agree to <a href="#">term &amp; condition</a> and <a
-                                                    href="#">privacy policy</a></label>
+                                            <label for="term">Нажимая на кнопку <a href="#">я соглашаюсь на обработку</a> персональных данных <a
+                                                    href="#"> (смореть) </a></label>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 submit-area">
-                                        <a href="{% url 'index' %}" class="submit more-link"> Sign Up </a>
+                                        <!-- <a href="{% url 'index' %}" class="submit more-link"> Регистрация </a> -->
+                                        <button class="submit more-link" type="submit">Регистрация</button>
                                         <div id="msg" class="message"></div>
                                     </div>
                                 </div>
@@ -98,6 +94,6 @@
 
     <!-- Start:Footer Section
 ==================================================-->
-{% include 'footer.html' %}
+{% include 'include/footer.html' %}
 
 {%endblock%}
