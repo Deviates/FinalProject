@@ -6,7 +6,7 @@
       <div class="container">
         <div class="logo">
           <a href="{% url 'index' %}">
-            <img class="img-responsive" src="{{setting.logo_site.url}}" width="70" alt="">       
+            <img class="img-responsive" src="{{setting.logo_site.url}}" width="60%" alt="">       
           </a>
         </div>
         <div id="navigation" class="menu-wrap">
@@ -31,7 +31,7 @@
         <div class="header_sign">
           <!-- <a style="color:green;" href="">login</a> -->
           {% if user.is_authenticated %}
-          <a href="" class="more-link"> Личный кабинет</a>
+          <a href="{% url 'user_account' request.user.id %}" class="more-link"> Личный кабинет</a>
           <a href="{% url 'logout' %}" class="more-link"> Выйти</a>
           {% else %}
           <a href="{% url 'login' %}" class="more-link"> Войти</a>

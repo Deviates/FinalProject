@@ -208,12 +208,14 @@
           {% for course in courses %}
           <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="feat_course_item">
-              <img src="{{course.image.url}}" width="50" height="200" alt="image">
+              <a href="{% url 'detail_courses' course.id %}">
+                <img src="{{course.image.url}}" width="10%" alt="image">
+              </a>
               <div class="feat_cour_price">
-                <span class="feat_cour_tag"> {{ course.title }} </span>
-                <span class="feat_cour_p"> ${{ course.price }} </span>
+                <a href="{% url 'detail_courses' course.id %}"><span class="feat_cour_tag"> {{ course.title }} </span></a>
+                <a href="{% url 'detail_courses' course.id %}"><span class="feat_cour_p"> {{ course.price }} СОМ </span></a>
               </div>
-              <h4 class="feat_cour_tit"> {{course.title}} </h4>
+              <a href="{% url 'detail_courses' course.id %}"><h4 class="feat_cour_tit">{{course.title}}</h4></a>
               <div class="feat_cour_lesson">
                 <span class="feat_cour_less">
                   <i class="pe-7s-note2"></i> {{course.less}} lessons </span>

@@ -1,5 +1,7 @@
 from django.db import models
 
+from apps.users.models import User
+
 # Create your models here.
 class Category(models.Model):
     title = models.CharField(
@@ -51,25 +53,24 @@ class Courses(models.Model):
         verbose_name_plural = "Наши курсы"
 
 class Buy(models.Model):
-    name = models.CharField(
-        max_length=155,
-        verbose_name="Имя пользователя"
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE,
+        related_name="users_buys",
+        verbose_name="Пользователь"
     )
-    email = models.EmailField(
-        verbose_name="Почта",
-        null=True,blank=True
+    course = models.ForeignKey(
+        Courses, on_delete=models.SET_NULL,
+        related_name="buys_courses",
+        verbose_name="Курсы",
+        null=True
     )
-    phone = models.CharField(
-        max_length=155,
-        verbose_name="Номер телефона"
+    created = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name="Дата покупки"
     )
-    buy_course = models.ForeignKey(
-        Courses,
-        on_delete=models.CASCADE,
-        related_name="buy_courses"
-    )
+
     def __str__(self):
-        return self.name
+        return f"{self.user} {self.course}"
 
     class Meta:
         verbose_name = "купить курс"

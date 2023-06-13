@@ -231,7 +231,7 @@
           <div class="col-lg-4 col-sm-12 single_curs_right">
             <!-- Widget Course Details -->
             <aside class="widget-course-details">
-              <h2> Цена <span> {{ course.price }} </span>
+              <h2> Цена <span> {{ course.price }} СОМ/месяц </span>
               </h2>
               <div class="course-detail-list">
                 <span>
@@ -263,7 +263,11 @@
                   <i class="far fa-book-spells"></i>Certification </span>
                 <span> Yes </span>
               </div>
-              <a href="{% url 'buy' %}" class="more-link"> Buy Now</a>
+              {% if user.is_authenticated %}
+              <a href="{% url 'buy' course.id %}" class="more-link">Купить</a>
+              {% else %}
+              <a href="{% url 'login' %}" class="more-link">Войдите свой аккаунт для приобретения</a>
+              {% endif %}
             </aside>
             <!-- Widget Course Details /- -->
             <!-- Related Courses -->
