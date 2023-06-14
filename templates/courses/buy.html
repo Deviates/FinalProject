@@ -1,0 +1,45 @@
+
+{%extends 'include/homepage.html'%}
+{%load static%}
+{%block content%}
+
+    <!-- Start: Account Section 
+==================================================-->
+    <section class="account-section">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="reg_wrap">
+              <!-- Start: Image -->
+              <div class="reg_img">
+                <img src="{% static 'images/hero-men.png'%}" alt="">
+              </div>
+              <!-- Start:  Signup  Form  -->
+              <div class="registration-form">
+                <h2> Вы уверены что хотите купить курс {{ course.title }} за {{ course.price }} СОМ? </h2>
+                
+                <form method="post">
+                  {% csrf_token %}
+
+                  
+                    <div class="submit-area">
+                      <button class="submit more-link" type="submit"> Купить </button>
+                      <a class="submit more-link" href="{% url 'index' %}"> Домой </a>
+                      <div id="msg" class="message"></div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- End:Signup Form  -->
+            </div>
+            <!-- .col-md-6 .col-sm-12 /- -->
+          </div>
+        </div>
+        <!-- row /- -->
+      </div>
+      <!-- container /- -->
+    </section>
+    <!-- End : Account Section 
+==================================================-->
+
+{%endblock%}
