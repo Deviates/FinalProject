@@ -10,3 +10,38 @@ const disableDarkMode=()=>{document.body.classList.remove('darkmode');localStora
 if(darkMode==='enabled'){enableDarkMode();}
 darkModeToggle.addEventListener('click',()=>{darkMode=localStorage.getItem('darkMode');if(darkMode!=='enabled'){enableDarkMode();}else{disableDarkMode();}});}})(jQuery);if($('#volume').length>0){$("#volume").slider({min:0,max:100,orientation:"vertical",value:0,range:"min",slide:function(event,ui){setVolume(ui.value/100);}});var myMedia=document.createElement('audio');$('#player').append(myMedia);myMedia.id="myMedia";function playAudio(fileName,myVolume){myMedia.src=fileName;myMedia.setAttribute('loop','loop');setVolume(myVolume);myMedia.play();}
 function setVolume(myVolume){var myMedia=document.getElementById('myMedia');myMedia.volume=myVolume;}}
+$(document).ready(function() {
+    $('#account-form').submit(function(event) {
+        event.preventDefault();  // Предотвращение отправки формы
+
+        // Получение данных из формы
+        var formData = new FormData(this);
+
+        // Отправка AJAX-запроса
+        $.ajax({
+            type: 'POST',
+            url: '/my-ajax-view/',  // URL вашего представления AJAX-запроса
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                // Обработка успешного ответа
+                console.log(response);
+
+                // Отображение результата на странице
+                if (response.result === 'success') {
+                    $('#result-message').text(response.message);
+                } else {
+                    $('#result-message').text('Произошла ошибка.');
+                }
+            },
+            error: function(xhr, errmsg, err) {
+                // Обработка ошибок
+                console.log(xhr.status + ': ' + xhr.responseText);
+
+                // Отображение сообщения об ошибке на странице
+                $('#result-message').text('Произошла ошибка при выполнении запроса.');
+            }
+        });
+    });
+});

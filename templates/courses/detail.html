@@ -264,10 +264,17 @@
                 <span> Yes </span>
               </div>
               {% if user.is_authenticated %}
-              <a href="{% url 'buy' course.id %}" class="more-link">Купить</a>
+                {% if not user_course %}
+                  <a href="{% url 'buy' course.id %}" class="more-link">Купить</a>
+                {% endif %}
+                {% if user_course %}
+                  <a href="{% url 'detail_courses' course.id %}" class="more-link">У вас уже есть покупка курса {{ course.title }}</a>
+                  
+                {% endif %}
               {% else %}
               <a href="{% url 'login' %}" class="more-link">Войдите свой аккаунт для приобретения</a>
               {% endif %}
+              
             </aside>
             <!-- Widget Course Details /- -->
             <!-- Related Courses -->

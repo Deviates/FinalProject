@@ -44,6 +44,9 @@ class Courses(models.Model):
         max_length=100,
         verbose_name="Длительность"
     )
+    url = models.URLField(
+        verbose_name="Ссылка на курс"
+    )
 
     def __str__(self):
         return self.title

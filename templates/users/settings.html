@@ -161,7 +161,6 @@
                                 </p>
                                 {% if user.username == request.user.username %}
                                 <h5 class="profile-country mb-0">{{ user.balance }} СОМ</h5>
-                                <h5 class="profile-country mb-0">{{ user.wallet_id }}</h5>
                                 {% else %}
                                 <h5 class="profile-country mb-0">{{ user.phone }}</h5>
                                 {% endif %}
@@ -169,9 +168,16 @@
                             <div class="profile-info">
                                 <div class="text-center mb-4">
                                     <p class="info-title mb-0">Телефонный номер</p>
-                                    <span class="info-text">555-555-21541</span>
+                                    <span class="info-text">{{ user.phone }}</span>
                                 </div>
-                                
+                                <div class="text-center mb-4">
+                                    <p class="info-title mb-0">ID счета</p>
+                                    <span class="info-text">{{ user.wallet_id }}</span>
+                                </div>
+                                <div class="text-center mb-4">
+                                    <p class="info-title mb-0">Реферальный код</p>
+                                    <span class="info-text">{{ user.referral_code }}</span>
+                                </div>
                                 <ul class="social-nav p-0 mb-0 text-center">
                                     <li>
                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -274,9 +280,9 @@
                                 <a class="nav-item nav-link active" id="nav-home-tab" data-bs-toggle="tab"
                                     href="#general">Настройки аккаунта</a>
                                 <a class="nav-item nav-link" id="nav-profile-tab" data-bs-toggle="tab"
-                                    href="#notifications">Уведомления</a>
+                                    href="#notifications">Переводы</a>
                                 <a class="nav-item nav-link" id="nav-profile-tab1" data-bs-toggle="tab"
-                                    href="#history">Курсы</a>
+                                    href="#history">Курсы</a>   
                                 <a class="nav-item nav-link" id="nav-profile-tab2" data-bs-toggle="tab"
                                     href="#security">Безопасность</a>
                             </div>
@@ -353,63 +359,6 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <hr>
-                                    <div class="social-settings">
-                                        <h4>Соц сети</h4>
-                                        <div class="form-col form-body">
-                                            <form action="index.html">
-                                                <div class="row">
-                                                    <div class="col-md-6 col-xl-4">
-                                                        <div class="form-group">
-                                                            <input
-                                                                class="form-control form-control-lg group_formcontrol"
-                                                                name="facebook" type="text" placeholder="Facebook Link">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-xl-4">
-                                                        <div class="form-group">
-                                                            <input
-                                                                class="form-control form-control-lg group_formcontrol"
-                                                                name="twitter" type="text" placeholder="Twitter Link">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-xl-4">
-                                                        <div class="form-group">
-                                                            <input
-                                                                class="form-control form-control-lg group_formcontrol"
-                                                                name="instagram" type="text"
-                                                                placeholder="Instagram Link">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-xl-4">
-                                                        <div class="form-group">
-                                                            <input
-                                                                class="form-control form-control-lg group_formcontrol"
-                                                                name="linkedin" type="text" placeholder="Linkedin Link">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-xl-4">
-                                                        <div class="form-group">
-                                                            <input
-                                                                class="form-control form-control-lg group_formcontrol"
-                                                                name="youtube" type="text" placeholder="Youtube Link">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-row profile_form m-0 align-items-center">
-                                                    <div class="me-4">
-                                                        <button type="button" class="btn btn-update  mb-0">
-                                                            Update Details
-                                                        </button>
-                                                    </div>
-                                                    <div class="cancel-btn">
-                                                        <a href="#" data-bs-dismiss="modal"
-                                                            aria-label="Close">Cancel</a>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="settings-delete mt-4">
                                     <div class="row align-items-center justify-content-between">
@@ -427,124 +376,79 @@
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class="tab-pane fade " id="notifications">
                                 <div class="settings-header">
-                                    <h5>Notifications</h5>
-                                    <p>Update your account Notifications</p>
+                                    <h5>Переводы</h5>
+                                    <p>Вы можете перевести деньги другим пользователям по счет id</p>
                                 </div>
-                                <div class="settings-control full-options">
-                                    <ul>
-                                        <li class="d-flex align-items-center">
-                                            <label class="switch me-3">
-                                                <input type="checkbox" checked>
-                                                <span class="slider round"></span>
-                                            </label>
-                                            <div>
-                                                <span>Allow mobile notifications</span>
+                                <div class="security-settings">
+                                    <div class="password-updation">
+                                        <div class="row">
+                                            <div class="col-xl-4">
+                                                <div class="form-col form-body">
+                                                    <form method="POST" id="transfer-form">
+                                                        {% csrf_token %}
+                                                        <div class="form-group">
+                                                            <label>ID счета</label>
+                                                            <input
+                                                                class="form-control form-control-lg group_formcontrol"
+                                                                name="wallet_address" id="wallet_id"  type="text">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Сумма</label>
+                                                            <input
+                                                                class="form-control form-control-lg group_formcontrol"
+                                                                name="amount" id="amount" type="text">
+                                                        </div>
+                                                        <div class="form-row profile_form m-0 align-items-center">
+                                                            <div class="me-4">
+                                                                <button type="submit" name="transfer" class="btn btn-update mb-0">
+                                                                    Отправить
+                                                                </button>
+                                                            </div>
+
+                                                            <div class="cancel-btn">
+                                                                <a href="#" data-bs-dismiss="modal"
+                                                                    aria-label="Close">Отклонить</a>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <div id="result-message"></div>
+                                                </div>
                                             </div>
-                                        </li>
-                                        <li class="d-flex align-items-center">
-                                            <label class="switch me-3">
-                                                <input type="checkbox" checked>
-                                                <span class="slider round"></span>
-                                            </label>
-                                            <div>
-                                                <span>Notifications from your friends</span>
+                                            <div class="col-xl-8">
+                                                <div class="requirment-card">
+                                                    <h4>Переводы</h4>
+                                                    <p class="py-3 mb-0">При отправке денег проверьте что у вас достаточно денег для отправки</p>
+                                                    <div class="requirements-list">
+                                                        <p>Проверьте что ID счета написана правильно</p>
+                                                        <p>Отправленные деньги не возращаются</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </li>
-                                        <li class="d-flex align-items-center">
-                                            <label class="switch me-3">
-                                                <input type="checkbox">
-                                                <span class="slider round"></span>
-                                            </label>
-                                            <div>
-                                                <span>Send notifications by email</span>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex align-items-center">
-                                            <label class="switch me-3">
-                                                <input type="checkbox" checked>
-                                                <span class="slider round"></span>
-                                            </label>
-                                            <div>
-                                                <span>Allow connected contacts</span>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex align-items-center">
-                                            <label class="switch me-3">
-                                                <input type="checkbox" checked>
-                                                <span class="slider round"></span>
-                                            </label>
-                                            <div>
-                                                <span>Confirm message requests</span>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex align-items-center">
-                                            <label class="switch me-3">
-                                                <input type="checkbox">
-                                                <span class="slider round"></span>
-                                            </label>
-                                            <div>
-                                                <span>Profile privacy</span>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                    </div>
+                                    <hr>
                                 </div>
                             </div>
 
 
                             <div class="tab-pane fade" id="history">
-                                <div class="settings-header">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-8">
-                                            <h5>Device History</h5>
-                                            <p>If you see a device here that you believe wasn’t you, please contact our
-                                                account fraud department immediately.</p>
-                                        </div>
-                                        <div class="col-md-4 text-md-end">
-                                            <button class="btn logout-btn">Log out all Devices</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="logged-devices-settings">
+                                <div>
+                                    {% for purchase in purchases %}
                                     <div class="logged-device align-items-center d-flex">
+
                                         <div class="device-details">
-                                            <h5>IPhone 11</h5>
-                                            <p>Brownsville, VT · Jun 11 at 10:05am</p>
+                                                <h5>{{ purchase.course }}</h5>
+                                                <p>Дата покупки: {{ purchase.created }}</p>
+                                            
                                         </div>
+
                                         <div class="logged-btn ms-auto">
-                                            <a href="#">Sign Out</a>
+                                            <a target="_blank" href="{{ purchase.course.url }}">Посмотреть</a>
                                         </div>
                                     </div>
-                                    <div class="logged-device align-items-center d-flex">
-                                        <div class="device-details">
-                                            <h5>IMac OSX · Safari 10.2</h5>
-                                            <p>Brownsville, VT · Jun 11 at 10:05am</p>
-                                        </div>
-                                        <div class="logged-btn ms-auto">
-                                            <a href="#">Sign Out</a>
-                                        </div>
-                                    </div>
-                                    <div class="logged-device align-items-center d-flex">
-                                        <div class="device-details">
-                                            <h5>HP Laptop Win10</h5>
-                                            <p>Brownsville, VT · Jun 11 at 10:05am</p>
-                                        </div>
-                                        <div class="logged-btn ms-auto">
-                                            <a href="#">Sign Out</a>
-                                        </div>
-                                    </div>
-                                    <div class="logged-device align-items-center d-flex">
-                                        <div class="device-details">
-                                            <h5>IMac OSX · Edge browser</h5>
-                                            <p>Brownsville, VT · Jun 11 at 10:05am</p>
-                                        </div>
-                                        <div class="logged-btn ms-auto">
-                                            <a href="#">Sign Out</a>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
                                 </div>
                             </div>
 
@@ -1019,6 +923,7 @@
     <script src="{% static 'users/assets/plugins/swiper/swiper.min.js' %}"></script>
 
     <script src="{% static 'users/assets/js/script.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>

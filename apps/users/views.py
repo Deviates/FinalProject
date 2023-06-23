@@ -1,14 +1,40 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
-from apps.users.models import User
+from django.http import JsonResponse
+
+from apps.users.models import User, MoneyTransfer
 from apps.settings.models import Setting
+from apps.courses.models import Buy
 
 # Create your views here.
+def my_ajax_view(request):
+    if request.method == 'POST' and request.is_ajax():
+        # Получение данных из запроса
+        data = request.POST.get('data')
+
+        # Выполнение операций над данными
+        # ...
+
+        # Подготовка ответа
+        response_data = {
+            'result': 'success',
+            'message': 'Запрос успешно обработан.',
+            # Дополнительные данные, если требуется
+        }
+
+        # Возвращение ответа в формате JSON
+        return JsonResponse(response_data)
+
+    # Обработка некорректного запроса или других методов HTTP
+    return JsonResponse({'result': 'error', 'message': 'Некорректный запрос.'})
+
 def register(request):
     setting = Setting.objects.latest('id')
+    new_user = User.objects.latest('id')
     if request.method == "POST":
         username = request.POST.get('username')
+        bonus = request.POST.get('bonus')
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm')
         if password == confirm_password:
@@ -19,6 +45,10 @@ def register(request):
                     user.save()
                     user = User.objects.get(username = username)
                     user = authenticate(username = username, password = password)
+                    if bonus == new_user.referral_code:
+                        new_user.balance += 100
+                        new_user.save()
+                        user.balance += 100
                     login(request, user)
                     return redirect('index')
                 except:
@@ -58,13 +88,14 @@ def user_login(request):
 def user_account(request, id):
     setting = Setting.objects.latest('id')
     user = User.objects.get(id=id)
+    purchases = Buy.objects.filter(user=request.user)
     if request.method == "POST":
         if 'update_account' in request.POST:
             first_name = request.POST.get('first_name')
             last_name = request.POST.get('last_name')
             phone = request.POST.get('phone')
             username = request.POST.get('username')
-            profile_image = request.POST.get('profile_image')
+            profile_image = request.FILES.get('profile_image')
             email = request.POST.get('email')
             bio = request.POST.get('bio')
             user.first_name = first_name
@@ -76,4 +107,16 @@ def user_account(request, id):
             user.bio = bio
             user.save()
             return redirect('user_account', request.user.id)
+        if 'transfer' in request.POST:
+            wallet_address = request.POST.get('wallet_address')
+            amount = request.POST.get('amount')
+            sender = User.objects.get(username=request.user)
+            destination = User.objects.get(wallet_id=wallet_address)
+            sender.balance -= int(amount)
+            sender.save()
+            destination.balance += int(amount)
+            destination.save()
+            transfer_money = MoneyTransfer.objects.create(user=request.user, wallet_address=wallet_address, amount=amount)
+            response_data = {'result': 'success', 'message': '200 OK'}
+            return JsonResponse(response_data)
     return render(request, 'users/settings.html', locals())

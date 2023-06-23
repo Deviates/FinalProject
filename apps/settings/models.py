@@ -14,6 +14,33 @@ class Setting(models.Model):
         max_length=255,
         verbose_name="Дополнительная информация о колледже"
     )
+    phone = models.CharField(
+        max_length=255,
+        verbose_name='Телефон номер',
+        blank=True, null=True
+    )
+    email = models.EmailField(
+        max_length=255,
+        verbose_name='Почта',
+        blank=True, null=True
+        )
+    location = models.CharField(
+        max_length=255,
+        verbose_name='Адрес',
+        blank=True, null=True
+    )
+    facebook = models.URLField(
+        verbose_name='Facebook',
+        blank=True, null=True
+    )
+    instagram = models.URLField(
+        verbose_name='Instagram',
+        blank=True, null=True
+    )
+    youtube = models.URLField(
+        verbose_name='Youtube',
+        blank=True, null=True
+    )
     
     def __str__(self):
         return self.name_site
@@ -94,18 +121,45 @@ class Benefit(models.Model):
         verbose_name_plural = "Преимущества"
 
 class About(models.Model):
-    slide_1 = models.ImageField(
+    image = models.ImageField(
         upload_to="about_slide/",
-        verbose_name="Фото"
+        verbose_name="Фотография"
     )
-    info = models.CharField(
+    title = models.CharField(
         max_length=255,
-        verbose_name="О нас"
+        verbose_name="Название"
     )
-
+    description = models.TextField(
+        verbose_name="Описание"
+    )
+    
     def __str__(self):
-        return self.info
+        return self.title
     
     class Meta:
         verbose_name="О нас"
         verbose_name_plural="О нас"
+        
+class Data(models.Model):
+    online_course = models.CharField(
+        max_length=255,
+        verbose_name="Онлайн курсов"
+    )
+    active_students = models.CharField(
+        max_length=255,
+        verbose_name="Активных студентов"
+    )
+    expert_instructor = models.CharField(
+        max_length=255,
+        verbose_name="Экспертных инструкторов"
+    )
+    hours_educate = models.CharField(
+        max_length=255,
+        verbose_name="Часов обучения"
+    )
+    def __str__(self):
+        return self.online_course
+    
+    class Meta:
+        verbose_name="Мы в числах"
+        verbose_name_plural="Мы в числах"
