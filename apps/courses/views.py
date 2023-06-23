@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
+
 from apps.courses.models import Courses, Buy
 from apps.settings.models import Setting
-from apps.telegram.views import get_text
 
 # Create your views here.
 def courses(request):

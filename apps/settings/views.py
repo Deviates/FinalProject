@@ -3,7 +3,6 @@ from django.core.mail import send_mail
 
 from apps.settings.models import Setting, Benefit,Contact,About,Data
 from apps.courses.models import Category, Courses
-from apps.telegram.views import get_text
 
 # Create your views here.
 def index(request):
