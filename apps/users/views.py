@@ -99,7 +99,6 @@ def user_account(request, id):
                 transfer_money = MoneyTransfer.objects.create(user=request.user, wallet_address=wallet_address, amount=amount)
                 return redirect('/')
             else:
-                response_data = {'success': False, 'message': "You can't send money to yourself. Crazy!"}
-                return JsonResponse(response_data, status=400)
+                return render(request, 'users/error_page.html')
     return render(request, 'users/settings.html', locals())
 
