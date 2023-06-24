@@ -20,9 +20,12 @@ def buy(request, id):
     course = Courses.objects.get(id=id)
     if request.method == 'POST':
         user = request.user
-        user.balance -= course.price
-        user.save()
-        purchase = Buy(course=course, user=user)
-        purchase.save()
-        return redirect('/')
+        if user.balance >= course.price:
+            user.balance -= course.price
+            user.save()
+            purchase = Buy(course=course, user=user)
+            purchase.save()
+            return redirect('/')
+        else:
+            return render(request, 'courses/error_page.html')
     return render(request, 'courses/buy.html', {'course': course})

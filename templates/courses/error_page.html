@@ -1,0 +1,31 @@
+{%extends 'include/homepage.html'%}
+{%load static%}
+{%block content%}
+
+<head>
+    <title>Ошибка: Недостаточно средств</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ff0000;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ошибка: Недостаточно средств</h1>
+    <p>У вас недостаточно средств на счете для совершения покупки.</p>
+    <p>Пожалуйста, пополните свой счет и повторите попытку.</p>
+</body>
+</html>
+
+{%endblock%}

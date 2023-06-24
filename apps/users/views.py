@@ -8,27 +8,6 @@ from apps.settings.models import Setting
 from apps.courses.models import Buy
 
 # Create your views here.
-def my_ajax_view(request):
-    if request.method == 'POST' and request.is_ajax():
-        # Получение данных из запроса
-        data = request.POST.get('data')
-
-        # Выполнение операций над данными
-        # ...
-
-        # Подготовка ответа
-        response_data = {
-            'result': 'success',
-            'message': 'Запрос успешно обработан.',
-            # Дополнительные данные, если требуется
-        }
-
-        # Возвращение ответа в формате JSON
-        return JsonResponse(response_data)
-
-    # Обработка некорректного запроса или других методов HTTP
-    return JsonResponse({'result': 'error', 'message': 'Некорректный запрос.'})
-
 def register(request):
     setting = Setting.objects.latest('id')
     new_user = User.objects.latest('id')
@@ -112,11 +91,15 @@ def user_account(request, id):
             amount = request.POST.get('amount')
             sender = User.objects.get(username=request.user)
             destination = User.objects.get(wallet_id=wallet_address)
-            sender.balance -= int(amount)
-            sender.save()
-            destination.balance += int(amount)
-            destination.save()
-            transfer_money = MoneyTransfer.objects.create(user=request.user, wallet_address=wallet_address, amount=amount)
-            response_data = {'result': 'success', 'message': '200 OK'}
-            return JsonResponse(response_data)
+            if sender != destination:
+                sender.balance -= int(amount)
+                sender.save()
+                destination.balance += int(amount)
+                destination.save()
+                transfer_money = MoneyTransfer.objects.create(user=request.user, wallet_address=wallet_address, amount=amount)
+                return redirect('/')
+            else:
+                response_data = {'success': False, 'message': "You can't send money to yourself. Crazy!"}
+                return JsonResponse(response_data, status=400)
     return render(request, 'users/settings.html', locals())
+
