@@ -11,18 +11,20 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import config 
+
 import os
+from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-vwt@232mz_mso2%unquwb*l+2^6uba*j7f(+u^@da+r7&^s*^^'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -120,9 +122,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = os.environ.get('LANGUAGE_CODE')
 
-TIME_ZONE = 'Asia/Bishkek'
+TIME_ZONE = os.environ.get("TIME_ZONE")
 
 USE_I18N = True
 
@@ -146,8 +148,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 
 # telegram
-TELEGRAM_TOKEN = config.TOKEN
-ADMIN_ID = config.ADMIN_ID
+TELEGRAM_TOKEN = os.environ.get("TOKEN")
+ADMIN_ID = os.environ.get("ADMIN_ID")
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',

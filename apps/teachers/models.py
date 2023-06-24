@@ -23,10 +23,6 @@ class Teachers(models.Model):
         max_length=155,
         verbose_name="Номер телефона"
     )
-    # about_teacher = models.TextField(
-    #     max_length=255,
-    #     verbose_name="Информация об учителе"
-    # )
     def __str__(self):
         return self.name_teacher
     

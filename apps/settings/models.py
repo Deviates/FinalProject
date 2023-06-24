@@ -4,15 +4,15 @@ from django.db import models
 class Setting(models.Model):
     name_site = models.CharField(
         max_length=150,
-        verbose_name="Название колледжа"
+        verbose_name="Название сайта"
     )
     logo_site = models.ImageField(
         upload_to="logo/",
-        verbose_name="Логотип колледжа"
+        verbose_name="Логотип сайта"
     )
     info_site = models.CharField(
         max_length=255,
-        verbose_name="Дополнительная информация о колледже"
+        verbose_name="Дополнительная информация о сайте"
     )
     phone = models.CharField(
         max_length=255,
@@ -46,8 +46,8 @@ class Setting(models.Model):
         return self.name_site
     
     class Meta:
-        verbose_name = "Настройки колледжа"
-        verbose_name_plural = "Настройки колледжа"
+        verbose_name = "Настройка сайта"
+        verbose_name_plural = "Настройки сайта"
 
 class Event(models.Model):
     name_event = models.CharField(
