@@ -1,10 +1,9 @@
-from typing import Any, Optional
 from django.core.management.base import BaseCommand
-from apps.telegram.views import dp, executor
+from apps.telegram.views import bot
 
 class Command(BaseCommand):
-    help = "Start Bot Aiogram"
+    help = 'Bot' 
 
-    def handle(self, *args: Any, **options: Any) -> str | None:
-        print("Start Bot")
-        executor.start_polling(dp, skip_updates=True)
+    def handle(self, *args, **kwargs):
+        print("START TELEGRAM BOT")
+        bot.polling(none_stop=True, interval=0)
