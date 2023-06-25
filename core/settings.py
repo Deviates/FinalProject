@@ -149,7 +149,7 @@ AUTH_USER_MODEL = 'users.User'
 
 # telegram
 TELEGRAM_TOKEN = os.environ.get("TOKEN")
-ADMIN_ID = os.environ.get("ADMIN_ID")
+ADMIN_ID = os.environ.get("ID")
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',

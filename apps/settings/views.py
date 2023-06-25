@@ -4,6 +4,7 @@ from django.core.mail import send_mail
 from apps.settings.models import Setting, Benefit,Contact,About,Data
 from apps.courses.models import Category, Courses
 from apps.telegram.views import get_text
+from apps.users import views
 
 # Create your views here.
 def index(request):
@@ -25,16 +26,16 @@ def contacts(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('message')
-
+        Contact.objects.create(name = name,email = email,message = message)
         review = Contact.objects.create(name = name, email = email, message = message)
 
         get_text(f""" Оставлен отзыв 
 Имя пользователя: {review.name}
+Регистрацию прошел с ником 
 Адрес(email): {review.email}
 Текст: {review.message}
 """)
 
-        Contact.objects.create(name = name,email = email,message = message)
         send_mail(
             f'{message}',
 
