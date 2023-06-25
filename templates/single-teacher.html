@@ -1,6 +1,6 @@
 {%extends 'include/homepage.html'%}
 {%load static%}
-{%block content%}
+{%block content%} 
 
 {% include 'include/header.html' %}
 
@@ -13,8 +13,8 @@
             <!-- Headline Goes Here -->
             <h3>Instructor Details</h3>
             <h4>
-              <a href="{% url 'index' %}"> Home </a>
-              <span> &vert; </span> Instructor Details
+              <a href="{% url 'index' %}"> Домой </a>
+              <span> &vert; </span> Наши преподаватели
             </h4>
           </div>
         </div>
@@ -43,10 +43,18 @@
                 {% endif %}
               </div>
               <div class="teacher_social">
-                <a href="" class="fab fa-facebook-f"></a>
-                <a href="" class="fab fa-linkedin"></a>
-                <a href="" class="fab fa-twitter"></a>
-                <a href="" class="fab fa-youtube"></a>
+                {% if teacher.facebook %}
+                  <a href="" class="fab fa-facebook-f"></a>
+                {% endif %}
+                {% if teacher.linkedin %}
+                  <a href="" class="fab fa-linkedin"></a>
+                {% endif %}
+                {% if teacher.youtube %}
+                  <a href="" class="fab fa-youtube"></a>
+                {% endif %}
+                {% if teacher.instagram %}
+                  <a href="" class="fab fa-instagram"></a>
+                {% endif %}
               </div>
               <div class="teacher_achieve">
                 <div class="teacher_achieve_list">
@@ -75,11 +83,11 @@
           <div class="col-lg-8 col-md-7 col-sm-12 teach_course_tab">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="course-tab" data-bs-toggle="tab" data-bs-target="#course" type="button" role="tab" aria-controls="course" aria-selected="true">Course List </button>
+                <button class="nav-link active" id="course-tab" data-bs-toggle="tab" data-bs-target="#course" type="button" role="tab" aria-controls="course" aria-selected="true">Список курсов </button>
               </li>
               <!-- end: ourse-tab -->
               <li class="nav-item" role="presentation">
-                <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews</button>
+                <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Отзывы</button>
               </li>
               <!-- end: reviews-tab -->
             </ul>
@@ -87,7 +95,7 @@
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="course" role="tabpanel" aria-labelledby="course-tab">
                 <div class="row teacher_course">
-                  {% for course in course %}
+                  {% for course in courses %}
                   {% if course.name_course  %}
 
                   <div class="col-lg-6 col-sm-12">
@@ -134,57 +142,13 @@
                         <i class="fas fa-star"></i>
                         <i class="fal fa-star"></i>
                       </div>
-                      <p> It's Had been a fear most experience me that I feel a great assumption that never thoughts that will happens to But great provocatives things appropities received without realmost qualifier that happen that never thoughts that will happens to a fear most experience. </p>
-                      <h4> David Benjamin </h4>
+                      <p> Это был страх, который больше всего меня беспокоит, что я чувствую большое предположение, что никогда не случится мысли, что произойдет с Но большие провокационные вещи, полученные без самого реального квалификатора, которые случаются, что никогда не думают, что произойдет с самым большим страхом. </p>
+                      <h4> Стивен Роджерс </h4>
                       <h5>Washington, United States</h5>
                     </div>
                   </div>
                   <!-- end: review col-->
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="lfeedback_text">
-                      <div class="teacher_star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fal fa-star"></i>
-                      </div>
-                      <p> It's Had been a fear most experience me that I feel a great assumption that never thoughts that will happens to But great provocatives things appropities received without realmost qualifier that happen that never thoughts that will happens to a fear most experience. </p>
-                      <h4> David Benjamin </h4>
-                      <h5>Washington, United States</h5>
-                    </div>
-                  </div>
-                  <!-- end: review col-->
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="lfeedback_text">
-                      <div class="teacher_star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fal fa-star"></i>
-                      </div>
-                      <p> It's Had been a fear most experience me that I feel a great assumption that never thoughts that will happens to But great provocatives things appropities received without realmost qualifier that happen that never thoughts that will happens to a fear most experience. </p>
-                      <h4> David Benjamin </h4>
-                      <h5>Washington, United States</h5>
-                    </div>
-                  </div>
-                  <!-- end: review col-->
-                  <div class="col-lg-6 col-sm-12">
-                    <div class="lfeedback_text">
-                      <div class="teacher_star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fal fa-star"></i>
-                      </div>
-                      <p> It's Had been a fear most experience me that I feel a great assumption that never thoughts that will happens to But great provocatives things appropities received without realmost qualifier that happen that never thoughts that will happens to a fear most experience. </p>
-                      <h4> David Benjamin </h4>
-                      <h5>Washington, United States</h5>
-                    </div>
-                  </div>
-                  <!-- end: review col-->
+                  
                 </div>
               </div>
               <!-- End: Reviews Content -->

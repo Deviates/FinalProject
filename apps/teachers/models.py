@@ -23,6 +23,22 @@ class Teachers(models.Model):
         max_length=155,
         verbose_name="Номер телефона"
     )
+    facebook = models.URLField(
+        verbose_name='Фейсбук пользователя',
+        blank=True, null=True
+    )
+    instagram = models.URLField(
+        verbose_name='Инстаграм пользователя',
+        blank=True, null=True
+    )
+    linkedin = models.URLField(
+        verbose_name='Линкедин пользователя',
+        blank=True, null=True
+    )
+    youtube = models.URLField(
+        verbose_name='Ютуб пользователя',
+        blank=True, null=True
+    )
     def __str__(self):
         return self.name_teacher
     

@@ -49,23 +49,21 @@
         <!-- Start: Quick Link -->
         <div class="col-lg-3 col-md-6 col-sm-12">
           <div class="foo_widgetquick_lnk">
-            <h5>Category</h5>
+            <h5>Категории</h5>
             <ul>
               <li>
-                <a href="courses.html">Privacy & Poilicy</a>
+                <a href="courses.html">Безопасность</a>
               </li>
               <li>
-                <a href="courses.html">Terms & Condition</a>
+                <a href="courses.html">Условия соглашения</a>
               </li>
               <li>
-                <a href="courses.html">Customer Support</a>
+                <a href="courses.html">Поддержка</a>
               </li>
               <li>
-                <a href="courses.html">For Business </a>
+                <a href="courses.html">Для бизнеса</a>
               </li>
-              <li>
-                <a href="courses.html">Support</a>
-              </li>
+              
             </ul>
           </div>
         </div>
@@ -73,22 +71,19 @@
         <!-- Start: Useful Link -->
         <div class="col-lg-3 col-md-6 col-sm-12">
           <div class="foo_widgetuseful_lnk">
-            <h5>Useful Links</h5>
+            <h5>Полезные ссылки</h5>
             <ul>
               <li>
-                <a href="courses.html">About Us</a>
+                <a href="{% url 'about' %}">О нас</a> 
               </li>
               <li>
-                <a href="courses.html">Refer A Friend</a>
+                <a href="{% url 'courses' %}">Курсы</a>
               </li>
               <li>
-                <a href="courses.html">Scolarship</a>
+                <a href="{% url 'teachers' %}">Преподователи</a>
               </li>
               <li>
-                <a href="courses.html">Marketing</a>
-              </li>
-              <li>
-                <a href="courses.html">Free Courses</a>
+                <a href="{% url 'contacts' %}">Связаться с нами</a>
               </li>
             </ul>
           </div>
@@ -111,7 +106,7 @@
     </div>
     <!-- Start:Subfooter -->
     <div class="subfooter">
-      <p> Copyright © 2023 <a href="{% url 'index' %}">Deviates</a> All rights Reserved. </p>
+      <p> Copyright © 2023 <a href="{% url 'index' %}">Deviates.</a> All rights Reserved. </p>
     </div>
     <!-- End:Subfooter -->
   </footer>

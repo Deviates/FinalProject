@@ -3,7 +3,7 @@
 {%block content%}
 
 {% include 'include/header.html' %}
-
+ 
     <!-- header -->
     <header class="single-header">
       <!-- Start: Header Content -->
@@ -34,23 +34,32 @@
           <div class="col-lg-3 col-md-6 col-sm-12">
             <!-- teacher-list -->
             <div class="teacher-img">
+              <a href="{% url 'detail_teacher' teacher.id %}">
               <img src="{{teacher.foto_teacher.url}}" height="400px" alt="image">
             </div>
             <div class="teacher-info">
               <div class="teacher-social">
                 <ul>
+                  {% if teacher.facebook %}
                   <li>
                     <a href="#" class="fab fa-facebook-f"></a>
                   </li>
+                  {% endif %}
+                  {% if teacher.linkedin %}
                   <li>
-                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
                   </li>
+                  {% endif %}
+                  {% if teacher.youtube %}
                   <li>
-                    <a href="#" class="fab fa-linkedin-in"></a>
+                    <a href="#" class="fab fa-youtube"></a>
                   </li>
+                  {% endif %}
+                  {% if teacher.instagram %}
                   <li>
-                    <a href="#" class="fab fa-skype"></a>
+                    <a href="#" class="fab fa-instagram"></a>
                   </li>
+                  {% endif %}
                 </ul>
               </div>
               <a href="{% url 'detail_teacher' teacher.id %}">

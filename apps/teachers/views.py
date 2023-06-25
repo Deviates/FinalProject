@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Teachers
 from apps.courses.models import Courses
 from apps.settings.models import Setting, Anonym_messages
-from apps.telegram.views import get_text
+from apps.telegram.views import get_text 
 
 
 # Create your views here.
