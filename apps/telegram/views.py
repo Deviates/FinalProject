@@ -25,12 +25,12 @@ def get_message(message:types.Message):
     mail.description = message.text 
     users = TelegramUser.objects.all()
     for user in users:
-        bot.send_message(user.id_telegram, mail.description)
+        bot.send_message(user.id_user, mail.description)
     bot.send_message(message.chat.id, "Рассылка окончена")
 
 @bot.message_handler(commands=['mailing'])
 def send_mailing(message:types.Message):
-    if message.chat.id != admin_id:
+    if message.chat.id != int(admin_id):
         bot.send_message(message.chat.id, "Эта команда доступна только админу")
         return
     msg = bot.send_message(message.chat.id, "Введите текст для рассылки: ")

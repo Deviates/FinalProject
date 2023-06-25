@@ -163,3 +163,19 @@ class Data(models.Model):
     class Meta:
         verbose_name="Мы в числах"
         verbose_name_plural="Мы в числах"
+
+class Anonym_messages(models.Model):
+    name2 = models.CharField(
+        max_length=155,
+        verbose_name="кому"
+    )
+    message2 = models.TextField(
+        max_length=255,
+        verbose_name="Введите ваше сообщение"
+    )
+    def __str__(self):
+        return self.name2
+
+    class Meta:
+        verbose_name = "Анонимное сообщение"
+        verbose_name_plural = "Анонимные сообщения"

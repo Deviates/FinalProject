@@ -88,15 +88,25 @@
                       <input class="con-field" name="email" id="email2" type="email" placeholder="Почта">
                     </div>
                   </div>
+                  {% if user.is_authenticated %}
+                    <div class="row">
+                      <div class="col-lg-12 col-sm-12">
+                        <textarea class="con-field" name="message" id="message2" rows="6" placeholder="Ваше сообщение"></textarea>
+                        <div class="submit-area">
+                          <input type="submit" class="submit-contact" value="Отправить сообщение">
+                          <div id="msg" class="message"></div>
+                        </div>
+                      </div>
+                    </div>
+                  {% else %}
                   <div class="row">
                     <div class="col-lg-12 col-sm-12">
                       <textarea class="con-field" name="message" id="message2" rows="6" placeholder="Ваше сообщение"></textarea>
-                      <div class="submit-area">
-                        <input type="submit" class="submit-contact" value="Отправить сообщение">
-                        <div id="msg" class="message"></div>
+                      <a href="{% url 'register' %}" class="more-link">Пройдите регистрацию чтобы оставить отзыв</a>
                       </div>
                     </div>
                   </div>
+                  {% endif %}
                 </form>
               </div>
               <!-- End:Contact Form  -->
