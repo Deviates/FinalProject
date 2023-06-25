@@ -11,10 +11,10 @@
         <div class="row text-center wow fadeInUp" data-wow-delay="0.5s">
           <div class="col-sm-12">
             <!-- Headline Goes Here -->
-            <h3>Teachers</h3>
+            <h3>Преподователи</h3>
             <h4>
-              <a href="{% url 'index' %}"> Home </a>
-              <span> &vert; </span> Teachers
+              <a href="{% url 'index' %}"> Домой </a>
+              <span> &vert; </span> Преподователи
             </h4>
           </div>
         </div>
@@ -34,7 +34,7 @@
           <div class="col-lg-3 col-md-6 col-sm-12">
             <!-- teacher-list -->
             <div class="teacher-img">
-              <img src="{{teacher.foto_teacher.url}}" height="250px" alt="image">
+              <img src="{{teacher.foto_teacher.url}}" height="400px" alt="image">
             </div>
             <div class="teacher-info">
               <div class="teacher-social">
@@ -65,14 +65,14 @@
         </div>
         <div class="row teacher_partner">
           <div class="partner_col">
-            <span> Exceptional opportunities</span>
-            <h2> Become a Instractor</h2>
-            <a href="contact.html" class="more-link"> Contact Us </a>
+            <span>Исключительные возможности</span>
+            <h2>Станьте менторов</h2>
+            <a href="{% url 'contacts' %}"class="more-link"> Свяжитесь с нами </a>
           </div>
           <div class="partner_col">
-            <span> Exceptional opportunities</span>
-            <h2> Join our community</h2>
-            <a href="contact.html" class="more-link"> Contact Us </a>
+            <span>Исключительные возможности</span>
+            <h2>Присоеденяйтесь к нам</h2>
+            <a href="{% url 'contacts' %}"class="more-link"> Свяжитесь с нами </a>
           </div>
         </div>
         <!-- /. row -->
@@ -85,3 +85,4 @@
 {% include 'include/footer.html' %}
 
 {%endblock%}
+            
