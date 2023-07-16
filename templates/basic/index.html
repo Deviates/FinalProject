@@ -73,7 +73,7 @@
                 <img src="{% static 'images/pencil.png'%}" alt="" class="pencil">
                 <!-- /.hero_stu-->
               </div>
-            </div>
+            </div>  
             <!-- /.col-md-6 col-sm-12-->
           </div>
           <!-- /. row -->
@@ -257,19 +257,27 @@
               <img src="{% static 'images/kuma1.png'%}" alt="image" class="layer" data-depth="0.28">
             </div>
           </div>
+          
           <div class="col-md-6 col-sm-12" id="lfeedback_cur">
+            {% for feedback in feedback %}
+
             <div class="lfeedback_item">
               <!-- Start: Heading -->
+
               <div class="base-header">
                 <h3> Отзывы наших студентов </h3>
               </div>
               <!-- Best Book Image 1 -->
               <div class="lfeedback_text">
-                <p> Это был страх, который больше всего меня беспокоит, что я чувствую большое предположение, что никогда не случится мысли, что произойдет с Но большие провокационные вещи, полученные без самого реального квалификатора, которые случаются, что никогда не думают, что произойдет с самым большим страхом. </p>
-                <h4> Тони Старк </h4>
-                <h5>Washington, United States</h5>
+                <p> {{feedback.message}} </p>
+                <h4> {{feedback.username}} </h4>
               </div>
+              <div class="text-center">
+                <a href="{% url 'feedback'%}" class="more-link"> Оставить отзыв </a>
+              </div>
+
             </div>
+          {% endfor %}
             
           </div>
           <!--/ col-md-12  -->

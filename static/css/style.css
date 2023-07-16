@@ -71,6 +71,10 @@ body {
   padding: 0;
   position: relative;
 }
+.contact-form-row{
+  display: flex;
+  justify-content: center;
+}
 
 img {
   max-width: 100%;

@@ -179,3 +179,18 @@ class Anonym_messages(models.Model):
     class Meta:
         verbose_name = "Анонимное сообщение"
         verbose_name_plural = "Анонимные сообщения"
+
+class Feedback(models.Model):
+    username =  models.CharField(
+        max_length=255,
+        verbose_name="Имя пользователя"
+    )
+    message = models.TextField(
+        verbose_name="Отзыв"
+    )
+    def __str__(self):
+        return self.username
+
+    class Meta:
+        verbose_name = "Отзывы"
+        verbose_name_plural = "Отзыв"

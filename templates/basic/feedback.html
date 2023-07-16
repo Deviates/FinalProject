@@ -1,0 +1,81 @@
+{%extends 'include/homepage.html'%}
+{%load static%}
+{%block content%}
+
+{% include 'include/header.html' %}
+
+    <!-- header -->
+    <header class="single-header">
+      <!-- Start: Header Content -->
+      <div class="container">
+        <div class="row text-center wow fadeInUp" data-wow-delay="0.5s">
+          <div class="col-sm-12">
+            <!-- Headline Goes Here -->
+            <h3>Оставить Отзывы</h3>
+            <h4>
+              <a href="{% url 'index' %}"> Домой </a>
+              <span> &vert; </span> Отзывы
+            </h4>
+          </div>
+        </div>
+        <!-- End: .row -->
+      </div>
+      <!-- End: Header Content -->
+    </header>
+    <!--/. header -->
+    <!--/    
+==================================================-->
+    <!-- Start:  contact US  Section
+==================================================-->
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact_wrp">
+          <div class="contact-form-row" style="display: flex;justify-content: center;">
+            <div class="col-md-7 col-lg-8 col-sm-12 inner-contact">
+              <!--  Contact Form  -->
+              <div class="contact-form">
+                <h3>Отправьте нам отзыв</h3>
+                <form method="post" id="contact-form">
+                  {% csrf_token %}
+                  <div >
+                    <div class="  col-sm-12"style="width:'100%',margin:'0'">
+                      <input class="con-field" name="username" id="name" type="text"style="width:'100%" placeholder="Фио">
+                    </div>
+                    
+                  </div>
+                  {% if user.is_authenticated %}
+                    <div class="row">
+                      <div class="col-lg-12 col-sm-12">
+                        <textarea class="con-field" name="message" id="message2" rows="6" placeholder="Ваше сообщение"></textarea>
+                        <div class="submit-area">
+                          <input type="submit" class="submit-contact" value="Отправить сообщение">
+                          <div id="msg" class="message"></div>
+                        </div>
+                      </div>
+                    </div>
+                  {% else %}
+                  <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+                      <textarea class="con-field" name="message" id="message2" rows="6" placeholder="Ваше сообщение"></textarea>
+                      <a href="{% url 'register' %}" class="more-link">Пройдите регистрацию чтобы оставить отзыв</a>
+                      </div>
+                    </div>
+                  </div>
+                  {% endif %}
+                </form>
+              </div>
+              <!-- End:Contact Form  -->
+            </div>
+           
+          </div>
+          <!-- row /- -->
+        </div>
+      </div>
+      <!-- container /- -->
+    </section>
+    <!--   End: contact US  Section
+==================================================-->
+{% include 'include/footer.html' %}
+
+{%endblock%}
+  

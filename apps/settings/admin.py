@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.settings.models import Setting, Contact, Event, About, Benefit,Data
+from apps.settings.models import Setting, Contact, Event, About, Benefit,Data,Feedback
 
 # Register your models here.
 @admin.register(Setting)
@@ -22,3 +22,9 @@ class ContactAdmin(admin.ModelAdmin):
 @admin.register(Data)
 class DataAdmin(admin.ModelAdmin):
     list_display = ('online_course', 'active_students', 'expert_instructor','hours_educate')
+
+@admin.register(Feedback)
+class FeedbacksAdmin(admin.ModelAdmin):
+    list_display = ['username', 'message']
+    list_filter = ['username', 'message']
+    search_fields = ['username', 'message']
